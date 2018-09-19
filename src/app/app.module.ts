@@ -14,10 +14,9 @@ import { StoreModule } from '@ngrx/store';
 
 //local modules
 import { MaterialModule } from './material/material.module';
-import { LoginComponent } from './auth/login/login.component';
+import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './auth/registration/registration.component';
 import { AuthComponent } from './auth/auth.component';
-import { toUnicode } from 'punycode';
 
 @NgModule({
   declarations: [
