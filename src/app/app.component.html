@@ -1,1 +1,17 @@
-<app-auth></app-auth>
+<mat-sidenav-container class="example-container">
+    <mat-sidenav #sidenav mode="side" opened>
+        <!-- <mat-nav-list>
+            <a routerLink="/login" routerLinkActive="active">Login</a>
+        </mat-nav-list> -->
+    </mat-sidenav>    
+    <mat-sidenav-content>
+        <mat-toolbar color="primary">
+            <button>
+                <!-- <mat-icon svgIcon="hamIcon" (click)="sidenav.toggle()"></mat-icon> -->
+                Sidenav button
+            </button>
+            Toolbar
+        </mat-toolbar>
+        <app-login></app-login>
+    </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,24 +1,19 @@
 <form [formGroup]="loginForm" (ngSubmit)="loginFormSubmit()">
-    <p>
-      <mat-input-container>
-        <input type="text" matInput placeholder="Username" formControlName="username" pattern="^[a-zA-Z0-9_.-]*$" required>
-      </mat-input-container>
-    </p>
+  <mat-form-field>
+    <input type="text" matInput placeholder="Username" formControlName="username" pattern="^[a-zA-Z0-9_.-]*$" required>
+  </mat-form-field>  
   
-    <p>
-      <mat-input-container>
-        <input type="password" matInput placeholder="Password" formControlName="password" required>
-      </mat-input-container>
-    </p>
-    
-    TODO:
-    <!-- <p class="error message">
-      {{errorMessage}}
-    </p> -->
+  <mat-form-field>
+      <input type="password" matInput placeholder="Password" formControlName="password" required>
+  </mat-form-field>
   
-    <p class="loginButtons ">
-      <button type="submit" mat-button [disabled]='loginForm.invalid'>Login</button>
-    </p>    
-  </form>
+  <p class="error">
+    {{errorMessage}}
+  </p>
+
+  <p class="loginButtons ">
+    <button type="submit" mat-button [disabled]='loginForm.invalid'>Login</button>
+  </p>    
+</form>
   
   

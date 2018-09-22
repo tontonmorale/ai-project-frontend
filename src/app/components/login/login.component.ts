@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { LoginService } from '../../services/login.service';
+import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,36 +9,36 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  //TODO:errorMessage: string = '';
+  errorMessage: string = '';
   loginForm: FormGroup = new FormGroup({
     username: new FormControl(''),
     password: new FormControl('')
   });
-  disableButton = 
+  disableButton = false;
 
-  constructor(private loginService : LoginService, private router : Router) { }
+  constructor(private authService : AuthService, private router : Router) { }
 
   ngOnInit() {
     
   }
 
-  submitLoginForm(){
-    this.form.disable();
-    this.authService.login(this.form.controls.username.value , this.form.controls.password.value).subscribe(
-        () => {}, error => { 
+  loginFormSubmit(){
+    this.loginForm.disable();
+    this.authService.login(this.loginForm.controls.username.value , this.loginForm.controls.password.value);
+    // .subscribe(
+    //     () => {}, error => { 
   
-          if(error.status == 400){
-            this.errorMessage = JSON.parse(error._body).error_description;
-          
-          }
-          else{
-            this.errorMessage = "Error, please try later."
-          }
+    //       if(error.status == 400){
+    //         this.errorMessage = JSON.parse(error._body).error_description;
+    //       }
+    //       else{
+    //         this.errorMessage = "Error, please try later."
+    //       }
 
-          this.form.enable();
-          this.disableButton = false;
-          this.changeDetectorRef.detectChanges();
-        } 
-    );
+    //       this.loginForm.enable();
+    //       this.disableButton = false;
+    //       //this.changeDetectorRef.detectChanges();
+    //     } 
+    // );
   }
 }
