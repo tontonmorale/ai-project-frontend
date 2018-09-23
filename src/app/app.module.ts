@@ -8,14 +8,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 
-
-
-//import { StoreModule } from '@ngrx/store';
-
-// FIXME: 
-// import { reducers } from './app.reducers';
-
-
 //local modules
 import { MaterialModule } from './material/material.module';
 import { LoginComponent } from './components/login/login.component';

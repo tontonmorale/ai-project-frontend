@@ -2,7 +2,7 @@ import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuardService } from './services/auth-guard.service';
 import { LoginComponent } from './components/login/login.component';
-
+import { HomeComponent } from './components/home/home.component';
  
 const routes: Routes = [
   // {
@@ -19,6 +19,7 @@ const routes: Routes = [
   // },
   // { path:'', pathMatch: 'full', redirectTo:'home' },
   // { path: 'login', component: LoginComponent, canActivate:[AuthGuardService], pathMatch: 'full'},
+  // { path: 'home', component: HomeComponent, canActivate:[AuthGuardService], pathMatch: 'full'},
 ];
 
 @NgModule({

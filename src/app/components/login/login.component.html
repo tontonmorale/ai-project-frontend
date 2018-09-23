@@ -4,16 +4,14 @@
   </mat-form-field>  
   
   <mat-form-field>
-      <input type="password" matInput placeholder="Password" formControlName="password" required>
-  </mat-form-field>
-  
-  <p class="error">
-    {{errorMessage}}
-  </p>
+    <input type="password" matInput placeholder="Password" formControlName="password" required>
+  </mat-form-field> 
 
-  <p class="loginButtons ">
-    <button type="submit" mat-button [disabled]='loginForm.invalid'>Login</button>
-  </p>    
+  <div class="button-row">
+    <button type="submit" mat-raised-button color="primary" [disabled]='loginForm.invalid || loading'>Login</button>
+  </div>
 </form>
-  
-  
+
+<p *ngIf="errorMessage" class="error">
+  {{errorMessage}}
+</p>
