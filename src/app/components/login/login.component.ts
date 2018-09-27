@@ -26,14 +26,15 @@ export class LoginComponent implements OnInit {
     this.authService.logout();
   }
 
-  loginFormSubmit(){
+  loginFormSubmit(): void{
     if(this.loginForm.invalid){
       return;
     }
     this.loading = true;
     this.authService.login(this.loginForm.controls.username.value , this.loginForm.controls.password.value)
       .subscribe(
-          response => {
+          (response) => {
+            window.localStorage.setItem('ai-token', response.access_token);
             this.router.navigate(['/home']);
           },
           error => {    

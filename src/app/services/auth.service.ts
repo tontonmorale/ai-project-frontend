@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 
 
 @Injectable({ providedIn: 'root' })
-export class AuthService {
+export class AuthService { // login and logout
     basicUrl: string;
     postSub: Subscription;
 
@@ -17,7 +17,7 @@ export class AuthService {
         this.basicUrl = environment.API_URL;
     }
 
-    login(username: string, password: string) {
+    login(username: string, password: string) { // http.post
         let targetUrl = this.basicUrl + "/oauth/token";
 
         let body = new URLSearchParams();
@@ -44,18 +44,13 @@ export class AuthService {
             .pipe(
                 retry(3),              
             );
-        
-        postObs.subscribe(
-            (response) =>{
-                localStorage.setItem('ai-token', response.access_token);
-            });
             
         return postObs;
     }
 
     logout() {
         // remove user from local storage to log user out
-        localStorage.removeItem('currentUser');
+        window.localStorage.removeItem('ai-token');
     }
 
     ngOnDestroy(): void {

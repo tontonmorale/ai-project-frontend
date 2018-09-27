@@ -1,8 +1,9 @@
 import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthGuardService } from './services/auth-guard.service';
+import { AuthGuardService } from './services/jwt/auth-guard.service';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
+import { NgxPermissionsGuard } from 'ngx-permissions';
  
 const routes: Routes = [
   // {
@@ -17,9 +18,10 @@ const routes: Routes = [
   //     { path: 'buy', component: BuyComponent, canActivate:[AuthGuardService, NgxPermissionsGuard], data: {permissions: {only: ['ROLE_USER', 'ROLE_CUSTOMER'], redirectTo: 'home'}, pathMatch: 'full'}},
   //   ]
   // },
-  // { path:'', pathMatch: 'full', redirectTo:'home' },
-  // { path: 'login', component: LoginComponent, canActivate:[AuthGuardService], pathMatch: 'full'},
-  // { path: 'home', component: HomeComponent, canActivate:[AuthGuardService], pathMatch: 'full'},
+  { path:'', pathMatch: 'full', redirectTo:'login' },
+  { path: 'login', component: LoginComponent, pathMatch: 'full'},
+  { path: 'home', component: HomeComponent, canActivate:[AuthGuardService], pathMatch: 'full'},
+  //TODO: archive, upload, buy
 ];
 
 @NgModule({
